@@ -13,7 +13,7 @@ export const constantRoute = [
   },
   {
     //登录成功以后展示数据的路由
-    path: '/',
+    path: '/home',
     component: () => import('@/layout/index.vue'),
     name: 'layout',
     meta: {
@@ -28,6 +28,28 @@ export const constantRoute = [
         component: () => import('@/views/home/index.vue'),
         meta: {
           title: '首页',
+          hidden: false,
+          icon: 'HomeFilled',
+        },
+      },
+    ],
+  },
+  {
+    path: '/',
+    component: () => import('@/layout/portal.vue'),
+    name: 'portal',
+    meta: {
+      title: '',
+      hidden: false,
+      icon: 'HomeFilled',
+    },
+    redirect: '/portal',
+    children: [
+      {
+        path: '/portal',
+        component: () => import('@/views/portal/index.vue'),
+        meta: {
+          title: '管理台入口',
           hidden: false,
           icon: 'HomeFilled',
         },
